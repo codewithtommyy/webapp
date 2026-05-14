@@ -87,7 +87,6 @@ document.querySelectorAll("[data-subscribe-form]").forEach((form) => {
     }
 
     const originalLabel = button.textContent;
-    button.disabled = false;
     button.disabled = true;
     button.textContent = "Submitting...";
 
