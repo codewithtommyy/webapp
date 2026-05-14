@@ -752,6 +752,21 @@ tbody tr + tr td {
   margin: 18px 0 10px;
 }
 
+.newsletter-status {
+  min-height: 24px;
+  margin: 0 0 8px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.92rem;
+}
+
+.newsletter-status.is-error {
+  color: #fca5a5;
+}
+
+.newsletter-status.is-success {
+  color: #86efac;
+}
+
 .newsletter-form input {
   flex: 1;
   min-width: 0;

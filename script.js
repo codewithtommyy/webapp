@@ -1,5 +1,7 @@
 const slides = Array.from(document.querySelectorAll(".hero-slide"));
 const dots = Array.from(document.querySelectorAll(".dot"));
+const NEWSLETTER_ENDPOINT =
+  "https://pvudfmeljunobwhvyzkf.supabase.co/functions/v1/newsletter-subscribe";
 
 let activeIndex = 0;
 
@@ -25,10 +27,58 @@ setInterval(() => {
   setSlide(activeIndex + 1);
 }, 5000);
 
-document.querySelector(".newsletter-form")?.addEventListener("submit", (event) => {
+document.querySelector(".newsletter-form")?.addEventListener("submit", async (event) => {
   event.preventDefault();
-  const button = event.currentTarget.querySelector("button");
 
-  button.textContent = "Subscribed";
+  const form = event.currentTarget;
+  const input = form.querySelector("input[type='email']");
+  const button = form.querySelector("button");
+  const status = document.querySelector(".newsletter-status");
+  const email = input.value.trim();
+
+  status.textContent = "";
+  status.className = "newsletter-status";
+
+  if (!email) {
+    status.textContent = "Please enter your email address.";
+    status.classList.add("is-error");
+    return;
+  }
+
+  const originalLabel = button.textContent;
   button.disabled = true;
+  button.textContent = "Submitting...";
+
+  try {
+    const response = await fetch(NEWSLETTER_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        source: "homepage-newsletter",
+        meta: {
+          page: window.location.href,
+          userAgent: navigator.userAgent,
+        },
+      }),
+    });
+
+    const payload = await response.json().catch(() => ({}));
+
+    if (!response.ok) {
+      throw new Error(payload.error || "Unable to subscribe right now.");
+    }
+
+    status.textContent = payload.message || "Thanks for subscribing.";
+    status.classList.add("is-success");
+    input.value = "";
+  } catch (error) {
+    status.textContent = error.message || "Unable to subscribe right now.";
+    status.classList.add("is-error");
+  } finally {
+    button.disabled = false;
+    button.textContent = originalLabel;
+  }
 });
