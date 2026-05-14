@@ -2,6 +2,8 @@ const slides = Array.from(document.querySelectorAll(".hero-slide"));
 const dots = Array.from(document.querySelectorAll(".dot"));
 const NEWSLETTER_ENDPOINT =
   "https://pvudfmeljunobwhvyzkf.supabase.co/functions/v1/newsletter-subscribe";
+const subscribeModal = document.querySelector(".subscribe-modal");
+const subscribeModalInput = subscribeModal?.querySelector("input[type='email']");
 
 let activeIndex = 0;
 
@@ -27,58 +29,105 @@ setInterval(() => {
   setSlide(activeIndex + 1);
 }, 5000);
 
-document.querySelector(".newsletter-form")?.addEventListener("submit", async (event) => {
-  event.preventDefault();
-
-  const form = event.currentTarget;
-  const input = form.querySelector("input[type='email']");
-  const button = form.querySelector("button");
-  const status = document.querySelector(".newsletter-status");
-  const email = input.value.trim();
-
-  status.textContent = "";
-  status.className = "newsletter-status";
-
-  if (!email) {
-    status.textContent = "Please enter your email address.";
-    status.classList.add("is-error");
-    return;
+function setFormStatus(statusNode, message, type = "") {
+  if (!statusNode) return;
+  statusNode.textContent = message;
+  statusNode.className = statusNode.className.split(" ")[0];
+  if (type) {
+    statusNode.classList.add(type);
   }
+}
 
-  const originalLabel = button.textContent;
-  button.disabled = true;
-  button.textContent = "Submitting...";
+function openSubscribeModal() {
+  if (!subscribeModal) return;
+  subscribeModal.hidden = false;
+  document.body.classList.add("is-modal-open");
+  window.setTimeout(() => subscribeModalInput?.focus(), 20);
+}
 
-  try {
-    const response = await fetch(NEWSLETTER_ENDPOINT, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-        source: "homepage-newsletter",
-        meta: {
-          page: window.location.href,
-          userAgent: navigator.userAgent,
-        },
-      }),
-    });
+function closeSubscribeModal() {
+  if (!subscribeModal) return;
+  subscribeModal.hidden = true;
+  document.body.classList.remove("is-modal-open");
+}
 
-    const payload = await response.json().catch(() => ({}));
+document.querySelector("[data-open-subscribe]")?.addEventListener("click", (event) => {
+  event.preventDefault();
+  openSubscribeModal();
+});
 
-    if (!response.ok) {
-      throw new Error(payload.error || "Unable to subscribe right now.");
+document.querySelectorAll("[data-close-subscribe]").forEach((node) => {
+  node.addEventListener("click", closeSubscribeModal);
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && !subscribeModal?.hidden) {
+    closeSubscribeModal();
+  }
+});
+
+document.querySelectorAll("[data-subscribe-form]").forEach((form) => {
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const currentForm = event.currentTarget;
+    const input = currentForm.querySelector("input[type='email']");
+    const button = currentForm.querySelector("button");
+    const status =
+      currentForm.querySelector(".newsletter-status") ||
+      currentForm.querySelector(".subscribe-form-status");
+    const email = input.value.trim();
+    const source = currentForm.dataset.source || "homepage-newsletter";
+
+    setFormStatus(status, "");
+
+    if (!email) {
+      setFormStatus(status, "Please enter your email address.", "is-error");
+      return;
     }
 
-    status.textContent = payload.message || "Thanks for subscribing.";
-    status.classList.add("is-success");
-    input.value = "";
-  } catch (error) {
-    status.textContent = error.message || "Unable to subscribe right now.";
-    status.classList.add("is-error");
-  } finally {
+    const originalLabel = button.textContent;
     button.disabled = false;
-    button.textContent = originalLabel;
-  }
+    button.disabled = true;
+    button.textContent = "Submitting...";
+
+    try {
+      const response = await fetch(NEWSLETTER_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          source,
+          meta: {
+            page: window.location.href,
+            userAgent: navigator.userAgent,
+          },
+        }),
+      });
+
+      const payload = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(payload.error || "Unable to subscribe right now.");
+      }
+
+      setFormStatus(status, payload.message || "Thanks for subscribing.", "is-success");
+      input.value = "";
+
+      if (currentForm.closest(".subscribe-modal")) {
+        window.setTimeout(closeSubscribeModal, 1200);
+      }
+    } catch (error) {
+      setFormStatus(
+        status,
+        error.message || "Unable to subscribe right now.",
+        "is-error"
+      );
+    } finally {
+      button.disabled = false;
+      button.textContent = originalLabel;
+    }
+  });
 });
