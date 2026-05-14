@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CoinLineup Clone</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="#">
+          <span class="brand-mark">C</span>
+          <span class="brand-wordmark">CoinLineup</span>
+        </a>
+
+        <nav class="main-nav">
+          <a href="#news">News</a>
+          <a href="#markets">Markets</a>
+          <a href="#guides">Guides</a>
+          <a href="#projects">Projects</a>
+          <a href="#about">About</a>
+        </nav>
+
+        <div class="header-actions">
+          <button class="icon-button" aria-label="Search">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M10.5 4a6.5 6.5 0 1 0 4.02 11.6l4.44 4.44 1.41-1.41-4.44-4.44A6.5 6.5 0 0 0 10.5 4Zm0 2a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Z"
+              />
+            </svg>
+          </button>
+          <button class="icon-button" aria-label="Switch theme">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 3a1 1 0 0 1 1 1 8 8 0 1 0 8 8 1 1 0 1 1 2 0c0 6.08-4.92 11-11 11S1 18.08 1 12 5.92 1 12 1a1 1 0 0 1 0 2Z"
+              />
+            </svg>
+          </button>
+          <a class="subscribe-button" href="#">Subscribe</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero-grid" id="news">
+          <aside class="panel">
+            <div class="section-heading">
+              <h2>Latest News</h2>
+              <a href="#">View all</a>
+            </div>
+
+            <div class="news-list compact">
+              <article class="mini-news">
+                <div class="thumb thumb-fed"></div>
+                <div>
+                  <span class="chip chip-red">Breaking</span>
+                  <h3>FedNow vs XRP: Why the Fed Threatens XRP's Payment Use Case</h3>
+                  <p>10m ago</p>
+                </div>
+              </article>
+
+              <article class="mini-news">
+                <div class="thumb thumb-grid"></div>
+                <div>
+                  <h3>Hyperbridge Exploit Mints 18 Fake DOT on Ethereum, Nets $237K</h3>
+                  <p>1h ago</p>
+                </div>
+              </article>
+
+              <article class="mini-news">
+                <div class="thumb thumb-wave"></div>
+                <div>
+                  <h3>Ondo SEC Relief for Tokenized Securities on Ethereum</h3>
+                  <p>2h ago</p>
+                </div>
+              </article>
+
+              <article class="mini-news">
+                <div class="thumb thumb-fire"></div>
+                <div>
+                  <h3>Bridged DOT Exploit on Ethereum Mints 18 Tokens</h3>
+                  <p>3h ago</p>
+                </div>
+              </article>
+
+              <article class="mini-news">
+                <div class="thumb thumb-btc"></div>
+                <div>
+                  <h3>Bitcoin Price Eyes $70K as ETF Inflows Continue</h3>
+                  <p>4h ago</p>
+                </div>
+              </article>
+            </div>
+          </aside>
+
+          <section class="hero-card">
+            <div class="hero-slide active">
+              <div class="hero-image">
+                <div class="hero-fade"></div>
+                <span class="chip chip-red">Breaking</span>
+                <div class="hero-copy">
+                  <h1>FedNow vs XRP: Why the Fed Threatens XRP's Payment Use Case</h1>
+                  <div class="hero-meta">
+                    <span class="avatar"></span>
+                    <span>Yuki Matsuda</span>
+                    <span>Apr 20, 2025</span>
+                    <span>10 min read</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-slide">
+              <div class="hero-image hero-image-alt">
+                <div class="hero-fade"></div>
+                <span class="chip chip-purple">Analysis</span>
+                <div class="hero-copy">
+                  <h1>Bitcoin Price Analysis: BTC Eyes Breakout Above $70K</h1>
+                  <div class="hero-meta">
+                    <span class="avatar avatar-alt"></span>
+                    <span>Research Desk</span>
+                    <span>Apr 21, 2025</span>
+                    <span>8 min read</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-slide">
+              <div class="hero-image hero-image-third">
+                <div class="hero-fade"></div>
+                <span class="chip chip-blue">Market</span>
+                <div class="hero-copy">
+                  <h1>Top 10 Promising Crypto Projects to Watch in 2025</h1>
+                  <div class="hero-meta">
+                    <span class="avatar avatar-third"></span>
+                    <span>CoinLineup Team</span>
+                    <span>Apr 19, 2025</span>
+                    <span>7 min read</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="slider-dots" aria-label="Featured articles">
+              <button class="dot active" data-slide="0" aria-label="Slide 1"></button>
+              <button class="dot" data-slide="1" aria-label="Slide 2"></button>
+              <button class="dot" data-slide="2" aria-label="Slide 3"></button>
+            </div>
+          </section>
+
+          <aside class="panel">
+            <div class="section-heading">
+              <h2>Most Read</h2>
+              <a href="#">View all</a>
+            </div>
+            <ol class="most-read">
+              <li>Why Ethereum Could Outperform Bitcoin in Q2 2025</li>
+              <li>Solana Breaks Key Resistance - What's Next?</li>
+              <li>Top 10 AI Crypto Coins to Watch in 2025</li>
+              <li>How to Stake Ethereum: A Beginner's Guide</li>
+              <li>What is DeFi? The Ultimate Beginner Guide</li>
+            </ol>
+            <a class="panel-link" href="#">View all most read</a>
+          </aside>
+        </section>
+
+        <section class="section-card" id="markets">
+          <div class="section-heading">
+            <h2>Market Intelligence</h2>
+          </div>
+
+          <div class="market-grid">
+            <article class="stats-card gainers">
+              <div class="card-head">
+                <h3>Top Gainers</h3>
+                <a href="#">View all</a>
+              </div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Coin</th>
+                    <th>Price</th>
+                    <th>24h %</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>1</td><td>Bitensor</td><td>$507.27</td><td class="positive">+140.90%</td></tr>
+                  <tr><td>2</td><td>Official Trump</td><td>$11.31</td><td class="positive">+111.71%</td></tr>
+                  <tr><td>3</td><td>Collector Crypt</td><td>$0.0971</td><td class="positive">+92.77%</td></tr>
+                  <tr><td>4</td><td>MANTRA</td><td>$0.6416</td><td class="positive">+41.30%</td></tr>
+                  <tr><td>5</td><td>Syndicate</td><td>$0.4990</td><td class="positive">+38.35%</td></tr>
+                </tbody>
+              </table>
+              <div class="sparkline spark-green"></div>
+            </article>
+
+            <article class="stats-card losers">
+              <div class="card-head">
+                <h3>Top Losers</h3>
+                <a href="#">View all</a>
+              </div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Coin</th>
+                    <th>Price</th>
+                    <th>24h %</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>1</td><td>AXEL</td><td>$0.0006750</td><td class="negative">-36.91%</td></tr>
+                  <tr><td>2</td><td>WhiteBridge</td><td>$0.0204417</td><td class="negative">-27.31%</td></tr>
+                  <tr><td>3</td><td>Initia</td><td>$0.0119</td><td class="negative">-24.94%</td></tr>
+                  <tr><td>4</td><td>Telos Network</td><td>$0.0040768</td><td class="negative">-23.43%</td></tr>
+                  <tr><td>5</td><td>FUNToken</td><td>$0.0040090</td><td class="negative">-18.87%</td></tr>
+                </tbody>
+              </table>
+              <div class="sparkline spark-red"></div>
+            </article>
+
+            <article class="stats-card coins">
+              <div class="card-head">
+                <h3>Top Coins</h3>
+                <a href="#">View all</a>
+              </div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Coin</th>
+                    <th>Price</th>
+                    <th>24h %</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>1</td><td>Bitcoin</td><td>$70,473</td><td class="positive">+1.82%</td></tr>
+                  <tr><td>2</td><td>Ethereum</td><td>$3,237.98</td><td class="positive">+2.16%</td></tr>
+                  <tr><td>3</td><td>Tether</td><td>$1.00</td><td class="positive">+0.01%</td></tr>
+                  <tr><td>4</td><td>XRP</td><td>$1.37</td><td class="positive">+2.31%</td></tr>
+                  <tr><td>5</td><td>BNB</td><td>$611.37</td><td class="positive">+1.25%</td></tr>
+                </tbody>
+              </table>
+              <div class="sparkline spark-green"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="content-band">
+          <div class="content-main">
+            <section class="section-card">
+              <div class="section-heading">
+                <h2>Editor's Picks</h2>
+              </div>
+
+              <div class="feature-row">
+                <article class="feature-card">
+                  <div class="feature-visual feature-eth"></div>
+                  <div class="feature-body">
+                    <span class="chip chip-purple">Deep Dive</span>
+                    <h3>Why Ethereum Staking Is Quietly Dominating</h3>
+                    <p>Apr 18, 2025 • 8 min read</p>
+                  </div>
+                </article>
+
+                <article class="feature-card">
+                  <div class="feature-visual feature-vs"></div>
+                  <div class="feature-body">
+                    <span class="chip chip-blue">Analysis</span>
+                    <h3>The Real Story Behind XRP vs FedNow</h3>
+                    <p>Apr 17, 2025 • 10 min read</p>
+                  </div>
+                </article>
+
+                <article class="feature-card">
+                  <div class="feature-visual feature-doge"></div>
+                  <div class="feature-body">
+                    <span class="chip chip-pink">Insight</span>
+                    <h3>Inside Meme Coin Liquidity Cycles</h3>
+                    <p>Apr 16, 2025 • 7 min read</p>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="section-card" id="guides">
+              <div class="section-heading">
+                <h2>Guides Learning Hub</h2>
+                <p>Your complete learning path to master crypto</p>
+              </div>
+
+              <div class="guides-grid">
+                <article class="guide-feature">
+                  <span class="chip chip-green">Featured Guide</span>
+                  <h3>What is Bitcoin? A Beginner's Guide to BTC</h3>
+                  <p>
+                    Everything you need to know about Bitcoin, how it works, and why it matters.
+                  </p>
+                  <div class="guide-meta">
+                    <span>12 min read</span>
+                    <span>Beginner</span>
+                    <span>Updated Apr 19, 2025</span>
+                  </div>
+                  <a class="inline-link" href="#">Read Guide</a>
+                </article>
+
+                <div class="guide-visual"></div>
+
+                <div class="guide-list">
+                  <h4>Learning Paths</h4>
+                  <a href="#" class="list-card">
+                    <span>Start Here: Crypto Basics</span>
+                    <small>5 lessons</small>
+                  </a>
+                  <a href="#" class="list-card">
+                    <span>Trading Basics</span>
+                    <small>6 lessons</small>
+                  </a>
+                  <a href="#" class="list-card">
+                    <span>DeFi Fundamentals</span>
+                    <small>6 lessons</small>
+                  </a>
+                </div>
+
+                <div class="quick-answers">
+                  <h4>Quick Answers</h4>
+                  <a href="#" class="list-card"><span>What is Ethereum?</span></a>
+                  <a href="#" class="list-card"><span>What is DeFi?</span></a>
+                  <a href="#" class="list-card"><span>What is NFT?</span></a>
+                  <a href="#" class="list-card"><span>What is Staking?</span></a>
+                  <a href="#" class="list-card"><span>What is Web3?</span></a>
+                </div>
+
+                <div class="trust-box">
+                  <h4>Trusted & Reviewed</h4>
+                  <ul>
+                    <li>Tested by our team</li>
+                    <li>Fact-checked</li>
+                    <li>Regularly updated</li>
+                    <li>Trusted by 50K+ readers</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <section class="triple-news" id="projects">
+              <article class="section-card news-block">
+                <div class="section-heading">
+                  <h2>News</h2>
+                  <a href="#">View all</a>
+                </div>
+                <div class="block-hero block-fed"></div>
+                <h3>FedNow vs XRP: Why the Fed Threatens XRP's Payment Use Case</h3>
+                <ul class="bullet-news">
+                  <li>Solana Breaks Key Resistance - What's Next?</li>
+                  <li>Ethereum Layer 2 TVL Hits All-Time High</li>
+                  <li>Bitcoin Price Eyes $70K as ETF Inflows Continue</li>
+                </ul>
+              </article>
+
+              <article class="section-card news-block">
+                <div class="section-heading">
+                  <h2>Markets</h2>
+                  <a href="#">View all</a>
+                </div>
+                <div class="block-hero block-market"></div>
+                <h3>Bitcoin Price Analysis: BTC Eyes Breakout Above $70K</h3>
+                <ul class="bullet-news">
+                  <li>Ethereum Price Analysis: ETH Holds Key Support</li>
+                  <li>XRP Price Prediction: Targets and Levels</li>
+                  <li>Altcoin Market Cap Rebounds Above $1.2T</li>
+                </ul>
+              </article>
+
+              <article class="section-card news-block">
+                <div class="section-heading">
+                  <h2>Projects</h2>
+                  <a href="#">View all</a>
+                </div>
+                <div class="block-hero block-project"></div>
+                <h3>Top 10 Promising Crypto Projects to Watch in 2025</h3>
+                <ul class="bullet-news">
+                  <li>Review: Solaxy - The Next Solana L2?</li>
+                  <li>New Projects to Watch This Week</li>
+                  <li>Deep Dive: Ethena (ENA) Explained</li>
+                </ul>
+              </article>
+
+              <article class="section-card sponsor-block">
+                <div class="section-heading">
+                  <h2>Sponsored Articles</h2>
+                  <a href="#">View all</a>
+                </div>
+
+                <div class="sponsor-item">
+                  <div class="sponsor-logo"></div>
+                  <div>
+                    <small>Sponsored</small>
+                    <h3>Start Your Crypto Journey with OKX</h3>
+                    <p>OKX</p>
+                  </div>
+                </div>
+
+                <div class="sponsor-item">
+                  <div class="sponsor-logo sponsor-logo-alt"></div>
+                  <div>
+                    <small>Sponsored</small>
+                    <h3>Earn Passive Income with Nexo</h3>
+                    <p>Nexo</p>
+                  </div>
+                </div>
+
+                <div class="sponsor-item">
+                  <div class="sponsor-logo sponsor-logo-third"></div>
+                  <div>
+                    <small>Sponsored</small>
+                    <h3>Secure Your Assets with Ledger Wallet</h3>
+                    <p>Ledger</p>
+                  </div>
+                </div>
+              </article>
+            </section>
+          </div>
+        </section>
+      </main>
+
+      <section class="newsletter">
+        <div class="newsletter-copy">
+          <h2>Stay Ahead of the Market</h2>
+          <p>Get daily crypto insights before the market moves</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email" aria-label="Email" />
+            <button type="submit">Subscribe</button>
+          </form>
+          <small>No spam • Unsubscribe anytime</small>
+        </div>
+        <div class="newsletter-phone"></div>
+        <div class="newsletter-rating">
+          <h3>Join 50,000+ crypto enthusiasts</h3>
+          <div class="stars">★★★★★</div>
+          <p>4.8/5 from 2,300+ reviews</p>
+        </div>
+      </section>
+
+      <footer class="site-footer" id="about">
+        <div class="footer-brand">
+          <a class="brand" href="#">
+            <span class="brand-mark">C</span>
+            <span class="brand-wordmark">CoinLineup</span>
+          </a>
+          <p>Your go-to source for crypto news, guides, and market insights.</p>
+        </div>
+
+        <div class="footer-links">
+          <div>
+            <h4>Explore</h4>
+            <a href="#">News</a>
+            <a href="#">Markets</a>
+            <a href="#">Guides</a>
+            <a href="#">Projects</a>
+          </div>
+          <div>
+            <h4>Resources</h4>
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+          </div>
+          <div>
+            <h4>Community</h4>
+            <a href="#">Newsletter</a>
+            <a href="#">Twitter (X)</a>
+            <a href="#">Telegram</a>
+            <a href="#">Discord</a>
+          </div>
+        </div>
+
+        <div class="footer-meta">
+          <p>© 2025 CoinLineup. All rights reserved.</p>
+          <p>Made with ♥ for the crypto community</p>
+        </div>
+      </footer>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+  </html>
